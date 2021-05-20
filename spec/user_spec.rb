@@ -3,11 +3,9 @@ require_relative "../lib/user"
 RSpec.describe User do
   describe "Userクラスの情報" do
     let(:user) { User.new(params) }
-    let(:params) {{age: 31, hobby: "Soccer"}}
+    let(:params) {{name: name, age: 31, hobby: "Soccer"}}
     context "名前がTanakaの場合" do
-      before do
-        params.merge!(name: "Tanaka")
-      end
+      let(:name) { "Tanaka" }
       it "return user name" do
         expect(user.name).to eq "Tanaka"
       end
@@ -19,9 +17,7 @@ RSpec.describe User do
       end
     end
     context "名前がSuzukiの場合" do
-      before do
-        params.merge!(name: "Suzuki")
-      end
+      let(:name) { "Suzuki" }
       it "return user name" do
         expect(user.name).to eq "Suzuki"
       end
